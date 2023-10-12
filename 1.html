@@ -6,10 +6,46 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .move {
+            max-width: 300px;
+            border: 1px solid;
+            border-radius: 15px;
+        }
+
+        .move img {
+            display: block;
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+            margin: 0 auto;
+        }
+
+        .move > div {
+            padding: 15px;
+        }
+
+        .move h1 {
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
+<div id="app"></div>
 <script type="text/babel">
+    const container = document.getElementById('app');
 
+    const Move = ({name, year, img}) => {
+        return (
+            <div className="move">
+                <img src={img} alt={name}/>
+                <div>
+                    <h1>{name}</h1>
+                    <span>year: {year}</span>
+                </div>
+            </div>
+        )
+    };
+    ReactDOM.createRoot(container).render(<Move name="Звёздные войны: Эпизод 3 — Месть ситхов" year={2005} img="https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/2720c811-4065-43cf-9fc5-bd18ee3dbbf0/300x450"/>);
 </script>
 </body>
 </html>
