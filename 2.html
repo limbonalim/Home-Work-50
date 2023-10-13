@@ -47,104 +47,115 @@
 <div id="app"></div>
 <script type="text/babel">
     const container = document.getElementById('app');
-    const Header = () => {
-        return (
-            <div className="mb-4">
-                <nav className="navbar bg-body-tertiary pb-3">
-                    <div className="container-fluid container">
-                        <a href="#" className="Logo Logo-header">Лого</a>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+    const logo = 'History';
+    const navigation = ['Home', 'About', 'App', 'Blog'];
+    class Header extends React.Component{
+        render() {
+            return (
+                <div className="mb-4">
+                    <nav className="navbar bg-body-tertiary pb-3">
+                        <div className="container-fluid container">
+                            <a href="#" className="Logo Logo-header">{this.props.logo}</a>
+                            <form className="d-flex" role="search">
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                                 <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                </nav>
-            </div>
-        )
-    };
-    const Saidbar = () => {
-        return (
-            <div className="navigation">
-                <nav>
-                    <ul className="list-group" id="navigation">
-                        <li className="list-group-item" aria-current="true"><a href="#">Home</a></li>
-                        <li className="list-group-item"><a href="#">About</a></li>
-                        <li className="list-group-item"><a href="#">App</a></li>
-                        <li className="list-group-item"><a href="#">Blog</a></li>
-                    </ul>
-                </nav>
-            </div>
-        )
-    };
-    const Content = () => {
-        return (
-            <div>
-                <h1 className="row">Content</h1>
-                <div className="row">
-                    <div className="col-md-9 col-xl-8">
-                        <p>But I must explain to you how all this mistaken idea of denouncing of a pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-                        </p>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat…
-                        </p>
-                    </div>
-                    <img className="col-md-3 h-25" src="https://loremipsum.io/assets/images/lorem-ipsum-generator-cicero-engraving.png"/>
+                            </form>
+                        </div>
+                    </nav>
                 </div>
-                <h2 className="row">Title 2</h2>
-                <div className="">
-                    <img className="float-start w-25 m-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/300px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg"/>
-                    <p className="">
-                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
-                    </p>
+            )
+        }
+    }
+    class Saidbar extends React.Component{
+        render(){
+            return (
+                <div className="navigation">
+                    <nav>
+                        <ul className="list-group" id="navigation">
+                            {this.getItems()}
+                            <li className="list-group-item"><a href="#">{this.props.items[0]}</a></li>
+                            <li className="list-group-item"><a href="#">{this.props.items[1]}</a></li>
+                            <li className="list-group-item"><a href="#">{this.props.items[2]}</a></li>
+                            <li className="list-group-item"><a href="#">{this.props.items[3]}</a></li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
-        )
-    };
-    const Footer = () => {
-        return (
-            <div className="bg-body-tertiary pt-3 mt-5">
-                <div className="container">
+            )
+        }
+    }
+    class Content extends React.Component{
+        render(){
+            return (
+                <div>
+                    <h1 className="row">Content</h1>
                     <div className="row">
-                        <a href="#" className="Logo col-2">Лого</a>
-                        <ul className="col-4 footerList">
-                            <li>Command</li>
-                            <li>Item1</li>
-                            <li>Item2</li>
-                            <li>Item3</li>
-                            <li>Item4</li>
-                        </ul>
-                        <ul className="col-3 footerList">
-                            <li>Contact</li>
-                            <li>Item1</li>
-                            <li>Item2</li>
-                            <li>Item3</li>
-                            <li>Item4</li>
-                            <li>Item5</li>
-                        </ul>
-                        <ul className="col-3 footerList">
-                            <li>Help</li>
-                            <li>Item1</li>
-                            <li>Item2</li>
-                        </ul>
+                        <div className="col-md-9 col-xl-8">
+                            <p>But I must explain to you how all this mistaken idea of denouncing of a pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+                            </p>
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat…
+                            </p>
+                        </div>
+                        <img className="col-md-3 h-25" src="https://loremipsum.io/assets/images/lorem-ipsum-generator-cicero-engraving.png"/>
+                    </div>
+                    <h2 className="row">Title 2</h2>
+                    <div className="">
+                        <img className="float-start w-25 m-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/300px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg"/>
+                        <p className="">
+                            Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
+                        </p>
                     </div>
                 </div>
-            </div>
-        )
-    };
+            )
+        }
+    }
+    class Footer extends React.Component{
+        render(){
+            return (
+                <div className="bg-body-tertiary pt-3 mt-5">
+                    <div className="container">
+                        <div className="row">
+                            <a href="#" className="Logo col-2">{this.props.logo}</a>
+                            <ul className="col-4 footerList">
+                                <li>Command</li>
+                                <li>Item1</li>
+                                <li>Item2</li>
+                                <li>Item3</li>
+                                <li>Item4</li>
+                            </ul>
+                            <ul className="col-3 footerList">
+                                <li>Contact</li>
+                                <li>Item1</li>
+                                <li>Item2</li>
+                                <li>Item3</li>
+                                <li>Item4</li>
+                                <li>Item5</li>
+                            </ul>
+                            <ul className="col-3 footerList">
+                                <li>Help</li>
+                                <li>Item1</li>
+                                <li>Item2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
 
     const web = (
         <div>
-            <Header/>
+            <Header logo={logo}/>
             <div className="container">
                 <div className="row">
                     <div className="col-2">
-                        <Saidbar/>
+                        <Saidbar items={navigation}/>
                     </div>
                     <div className="col-10">
                         <Content/>
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer logo={logo}/>
         </div>
     );
 
