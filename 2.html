@@ -47,7 +47,7 @@
 <div id="app"></div>
 <script type="text/babel">
     const container = document.getElementById('app');
-    const logo = 'History';
+    const logo = 'History111';
     const navigation = ['Home', 'About', 'App', 'Blog'];
     class Header extends React.Component{
         render() {
@@ -72,7 +72,6 @@
                 <div className="navigation">
                     <nav>
                         <ul className="list-group" id="navigation">
-                            {this.getItems()}
                             <li className="list-group-item"><a href="#">{this.props.items[0]}</a></li>
                             <li className="list-group-item"><a href="#">{this.props.items[1]}</a></li>
                             <li className="list-group-item"><a href="#">{this.props.items[2]}</a></li>
@@ -95,7 +94,7 @@
                             <p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat…
                             </p>
                         </div>
-                        <img className="col-md-3 h-25" src="https://loremipsum.io/assets/images/lorem-ipsum-generator-cicero-engraving.png"/>
+                        <img className="col-md-3 h-25" src="https://loremipsum.io/assets/images/lorem-ipsum-generator-cicero-engraving.png" alt={logo}/>
                     </div>
                     <h2 className="row">Title 2</h2>
                     <div className="">
